@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garg Resturants</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+    <h1>Food Ordering System</h1>
+    <div class="container">
+        <div id="foodcards">
+            <!-- food cards discription -->
+
+        </div>
+    </div>
+    <div class="sideCart">
+        <h2>Your Order</h2>
+        <ul id="orderDisplay">
+            <li>Your Order is Empty</li>
+        </ul>
+        <h3>Total: Rs. <span id="totalPrice">0.00</span></h3>
+    </div>
+    <script>
+        let menudata=[];
+        // fetch data using api 
+        function fetchmenu(){
+            fetch("https://api.npoint.io/d48587410594df0f5932")
+            .then(response=>response.json())
+            .then(data=>{
+                console.log(data);
+                menudata=data;
+                display();
+            });
+
+
+        }
+        fetchmenu();
+
+        // display food items
+        function display(){
+            const foodcards=document.getElementById('foodcards');
+            let cardsHTML="";
+            menudata.forEach(food=>{
+                cardsHTML+=`
+                <div class="card">
+                    <img src=${food.food_image} alt=${food.food_name}/>
+                    <h3>${food.food_name}</h3>
+                    <p>Rs. ${food.food_price}</p>
+                    <button onclick="addToOrder(${food.food_id})">Add to Cart</button>
+                </div>
+                `;
+            });
+            foodcards.innerHTML=cardsHTML;
+        }
+
+        function addToOrder(food_id){
+            console.log("inside")
+            const item=menudata.find(food=>food.food_id===food_id);
+            if(item){
+                Order.addItem(item);
+            }
+
+        }
+
+
+
+
+        const Order={
+            items:[],
+            addItem:function(item){
+                const existing =this.items.find(i=>i.food_id===item.food_id);
+                if(existing){
+                    existing.quantity++;
+                }
+                else{
+                    const newItem={...item, quantity:1}
+                    this.items.push(newItem);
+                }
+                updateOrderDisplay();
+            },
+            incItem:function(food_id){
+                const item=this.items.find(i=>i.food_id===food_id)
+                if(item){
+                    item.quantity++;
+                    updateOrderDisplay();
+                }
+            },
+            decItem:function(food_id){
+                const item=this.items.find(i=>i.food_id===food_id)
+                if(item){
+                    item.quantity--;
+                    updateOrderDisplay();
+                }
+            },
+            calculateTotal:function(){
+                let total=0;
+                this.items.forEach(item=>{
+                    total+=item.food_price*item.quantity
+                });
+                return total;
+            }
+        }
+        function updateOrderDisplay(){
+            console.log('inside update')
+            const orderDisplay=document.getElementById('orderDisplay');
+            if(Order.items.length===0){
+                orderDisplay.innerHTML="<l1>Your cart is empty"
+            }
+            else{
+                let orderHtml="";
+                Order.items.forEach(item=>{
+                    orderHtml+=`
+                        <li>
+                            <div class="order-item-info">
+                                ${item.food_name}<br>
+                                Rs. ${(item.food_price*item.quantity).toFixed(2)}.(x${item.quantity})
+                            </div>
+                            <div class="order-item-buttons">
+                                <button onclick="Order.incItem(${item.food_id})">+</button>
+                                <button onclick="Order.decItem(${item.food_id})">-</button>
+
+                            </div>  
+                        <li>
+                    `;
+                });
+                orderDisplay.innerHTML=orderHtml;
+            }
+            document.getElementById('totalPrice').textContent=Order.calculateTotal();
+        }
+        function incItem(food_id){Order.incItem(food_id)}
+
+        document.addEventListener('DOMContentLoaded',fetchmenu)
+</script>
+
+
+
+</body>
+</html>

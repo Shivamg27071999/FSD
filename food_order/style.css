@@ -1,0 +1,281 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #fffaf0;
+  }
+  
+  /* Navbar */
+  nav {
+    background: url('https://img.freepik.com/fotos-premium/vista-superior-do-fast-food-com-espaco-de-copia_23-2148273099.jpg') center/cover no-repeat;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  nav a {
+    color: rgb(248, 245, 245);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    position: relative;
+  }
+  nav a:hover {
+    color: #ffd700;
+    size: 2rem;
+    font-size: 2rem;
+  }
+  
+  /* Hero section */
+  .hero {
+    background: url('https://images.unsplash.com/photo-1600891965056-008f6fe5c278') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #ff6347;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .hero-btn:hover {
+    background: #e04e2d;
+  }
+  
+  /* Review Section */
+  .reviews {
+    padding: 40px 20px;
+    background-color: #fff5e1;
+    text-align: center;
+  }
+  .review-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .review-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 300px;
+  }
+  
+  /* Contact Form */
+  .contact-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .contact-form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .contact-form button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+  }
+  .contact-form button:hover {
+    background: #218838;
+  }
+  
+  /* Footer */
+  footer {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  
+
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 2.5rem;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Food Cards */
+#foodcards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 15px;
+    width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.card p {
+    margin: 0 10px 10px;
+    font-weight: 600;
+    color: #27ae60;
+}
+
+.card button {
+    margin: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+
+/* Side Cart */
+.sideCart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 1px solid #ccc;
+}
+
+.sideCart h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.sideCart ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sideCart li {
+    background: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.sideCart li:hover {
+    transform: scale(1.02);
+}
+
+.order-item-info {
+    flex: 1;
+    font-size: 0.95rem;
+    margin-right: 10px;
+}
+
+.order-item-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.order-item-buttons button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-item-buttons button:hover {
+    background-color: #21618c;
+}
+
+.sideCart h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #27ae60;
+    font-weight: bold;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+}
+
+/* Scrollbar Styling (optional) */
+.sideCart ul::-webkit-scrollbar {
+    width: 6px;
+}
+.sideCart ul::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 6px;
+}

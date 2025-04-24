@@ -8,7 +8,7 @@
  
 </head>
 <body>
-    <div class="header">
+    <!-- <div class="header">
         <nav>
             <a href="#">Home</a>
             <a href="#">Contacts</a>
@@ -23,7 +23,33 @@
         <iframe width="1415" height="796" src="https://www.youtube.com/embed/j3AzMS271zk?list=RDV1OugWDmEqo" title="Pehli Pehli Baar X Dhadkan X Aja We Mahiya Mashup | Imran Khan | Mani Chopra | Sonic Vibe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <iframe width="1415" height="796" src="https://www.youtube.com/embed/84ZWF9qMcWo?list=RDV1OugWDmEqo" title="Dua - Remix | Melodic Progressive | Debb" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>    -->
-    <p id="demo"></p>
-    <script src="./index.js" defer></script> 
+    <h1>Welcome to dom</h1>
+    <p id="demo">
+
+    </p>
+
+    <ul id="list">
+
+    </ul>
+    <script>
+
+        const list=document.getElementById('list');
+        console.list;
+        let fruits=['apple', 'banana','orange', 'mango','watermalon'];
+        fruits.map
+        fruits.map((fruit,index)=>{
+            const li=document.createElement('li'); //createelement used for create any element.
+            //li.textContent=fruit // which data you have to enter in newly created tag
+            li.innerHTML=`<h3>${fruit}</h3>`;
+            console.log(li);
+            list.append(li) // append in which class and id you want to enter data
+        })
+    </script>
+
+
+    
+    <!-- <script src="./index.js" defer>
+
+    </script>  -->
 </body>
 </html>
