@@ -107,5 +107,72 @@ function fillOrderSummary() {
   const summaryBox = document.getElementById("orderSummaryBox");
   if (summaryBox) summaryBox.value = summary;
 }
+function generateSummary() {
+    const summaryBox = document.getElementById('orderSummaryBox');
+    const priceField = document.getElementById('priceField');
+    const orderField = document.getElementById('orderField');
 
+    if (Order.items.length === 0) {
+        summaryBox.value = "Your cart is empty!";
+        priceField.value = "";
+        orderField.value = "";
+        return;
+    }
+
+    const summaryText = Order.items.map(item => {
+        return `${item.food_name} x ${item.quantity} = Rs. ${(item.food_price * item.quantity).toFixed(2)}`;
+    }).join('\n');
+
+    const totalPrice = Order.calculateTotal().toFixed(2);
+
+    summaryBox.value = summaryText + `\n\nTotal: Rs. ${totalPrice}`;
+    priceField.value = totalPrice;
+    orderField.value = summaryText;
+}
+
+function updateFormData() {
+    const summaryBox = document.getElementById('orderSummaryBox');
+    const priceField = document.getElementById('priceField');
+    const orderField = document.getElementById('orderField');
+
+    if (Order.items.length === 0) {
+        summaryBox.value = "Your cart is empty!";
+        priceField.value = "";
+        orderField.value = "";
+        return;
+    }
+
+    const summaryText = Order.items.map(item => {
+        return `${item.food_name} x ${item.quantity} = Rs. ${(item.food_price * item.quantity).toFixed(2)}`;
+    }).join('\n');
+
+    const totalPrice = Order.calculateTotal().toFixed(2);
+
+    summaryBox.value = summaryText + `\n\nTotal: Rs. ${totalPrice}`;
+    priceField.value = totalPrice;
+    orderField.value = summaryText;
+}
+
+
+
+// document.getElementById('generateSummaryBtn').addEventListener('click', function() {
+//     const formName = document.getElementById('formName');
+//     const formMobile = document.getElementById('formMobile');
+//     const formOrderDetails = document.getElementById('formOrderDetails');
+//     const formPrice = document.getElementById('formPrice');
+
+//     // Set form fields with order data
+//     formName.value = prompt("Enter Your Name:");
+//     formMobile.value = prompt("Enter Your Mobile Number:");
+
+//     let orderDetails = "Items: ";
+//     Order.items.forEach(item => {
+//         orderDetails += `${item.food_name} (x${item.quantity}), `;
+//     });
+//     formOrderDetails.value = orderDetails.slice(0, -2); // Remove trailing comma and space
+//     formPrice.value = Order.calculateTotal().toFixed(2);
+
+//     // Show the Google Form section
+//     document.getElementById('googleFormSection').style.display = 'block';
+// });
 document.addEventListener('DOMContentLoaded', fetchmenu);

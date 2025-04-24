@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Garg Restaurants - Shop</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <title>Garg Restaurants - Shop</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-    <h1>Food Ordering System</h1>
-    <div class="container">
-        <div id="foodcards"></div>
-    </div>
-    <div class="sideCart">
-        <h2>Your Order</h2>
-        <ul id="orderDisplay">
-            <li>Your Order is Empty</li>
-        </ul>
-        <h3>Total: Rs. <span id="totalPrice">0.00</span></h3>
-    </div>
 
-      
-    <script src="./script.js"></script>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+
+  <!-- Header -->
+  <h1>Food Ordering System</h1>
+
+  <!-- Food Cards -->
+  <div class="container">
+    <div id="foodcards"></div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="sideCart">
+    <h2>Your Order</h2>
+    <ul id="orderDisplay">
+      <li>Your Order is Empty</li>
+    </ul>
+    <h3>Total: Rs. <span id="totalPrice">0.00</span></h3>
+  </div>
+
+  <!-- Order Summary Section (For Google Form) -->
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    
+    <textarea id="orderSummaryBox" readonly placeholder="Click the button to generate summary"></textarea>
+    
+    <button onclick="generateSummary()">Generate Summary</button>
+    
+    <form id="orderForm" action="https://docs.google.com/forms/d/e/1FAIpQLSenwgNdjQ3QJ46kop-iUgDRnSWkNonln8geyS4xo81JYGva0w/formResponse" method="POST" target="_blank">
+      <input type="text" name="entry.1234567890" placeholder="Your Name" required><br>
+      <input type="tel" name="entry.2345678901" placeholder="Mobile Number" required><br>
+  
+      <!-- Hidden Fields for Order Data -->
+      <input type="hidden" name="entry.3456789012" id="priceField">
+      <input type="hidden" name="entry.4567890123" id="orderField">
+  
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+  
+  
+  
+  <script src="./script.js"></script>
 </body>
 </html>
