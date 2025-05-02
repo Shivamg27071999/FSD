@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - SG Coffee</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="scripts.js" defer></script>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background-color: #4b2e2b; /* Coffee brown color */
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #ffcc70; /* Golden accent */
+      text-decoration: underline;
+    }
+
+    /* Main Section */
+    main {
+      padding: 40px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 40px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #4b2e2b;
+      margin-bottom: 20px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .product {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      font-size: 1.5rem;
+      color: #4b2e2b;
+      margin: 15px 0;
+    }
+
+    .product p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .product button {
+      background-color: #4b2e2b; /* Coffee color */
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .product button:hover {
+      background-color: #36201d; /* Darker coffee shade */
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #4b2e2b;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      main {
+        padding: 30px;
+        width: 90%;
+      }
+
+      header nav ul li {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>SG Coffee <span>☕</span></h1>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="billing.html">Billing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Our Coffee Collection</h2>
+    <div class="product-grid">
+      <!-- Coffee Products -->
+      <div class="product">
+        <img src="./images/latte.jpg" alt="Latte">
+        <h3>Latte</h3>
+        <p>$5.00</p>
+        <button onclick="addToCart('Latte', 5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="./images/expresso.jpg" alt="Expresso">
+        <h3>Expresso</h3>
+        <p>$20.00</p>
+        <button onclick="addToCart('Expresso', 5)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="./images/mocha.jpg" alt="Mocha">
+        <h3>Mocha</h3>
+        <p>$6.00</p>
+        <button onclick="addToCart('Mocha', 6)">Add to Cart</button>
+      </div>
+      <!-- Add more products as needed -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SG Coffee. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

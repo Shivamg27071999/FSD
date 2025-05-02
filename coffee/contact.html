@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - SG Coffee</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #4b2e2b; /* Coffee brown color */
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #ffcc70; /* Golden accent */
+      text-decoration: underline;
+    }
+
+    /* Main Section */
+    main {
+      padding: 40px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 40px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #4b2e2b;
+      margin-bottom: 20px;
+    }
+
+    /* Form Styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    form label {
+      font-size: 1.1rem;
+      color: #333;
+      align-self: flex-start;
+      margin-left: 10px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: #ffcc70; /* Golden accent on focus */
+    }
+
+    form button {
+      background-color: #4b2e2b; /* Dark coffee color */
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #36201d; /* Darker coffee shade */
+      transform: scale(1.05);
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #4b2e2b;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      main {
+        padding: 30px;
+        width: 90%;
+      }
+
+      header nav ul li {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>SG Coffee <span>☕</span></h1>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="billing.html">Billing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contact SG Coffee</h2>
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message here" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SG Coffee. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript Form Handling
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && message) {
+        alert('Thank you for contacting us, ' + name + '! We will get back to you shortly.');
+        document.getElementById('contactForm').reset(); // Reset the form
+      } else {
+        alert('Please fill out all fields.');
+      }
+    });
+  </script>
+
+</body>
+</html>

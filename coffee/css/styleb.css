@@ -1,0 +1,115 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fffdf7;
+    margin: 0;
+    padding: 0;
+    color: #3a2c27;
+  }
+  
+  /* Header */
+  header {
+    background: #4b2e2b;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+  }
+  
+  header h1 span {
+    color: #ffcc70;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    background: #f9f7f3;
+  }
+  
+  label {
+    margin-bottom: 0.3rem;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Button */
+  button {
+    background: #4b2e2b;
+    color: white;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #36201d;
+  }
+  
+  /* Invoice */
+  .invoice-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #fffbf7;
+    border: 1px solid #eee;
+    border-radius: 10px;
+  }
+  
+  .invoice-section p {
+    margin: 0.3rem 0;
+  }
+  
+  .invoice-section h3 {
+    margin-bottom: 1rem;
+    color: #5c3d2e;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background: #f5eee6;
+    margin-top: 2rem;
+  }
+  
