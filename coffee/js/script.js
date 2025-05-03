@@ -1,65 +1,37 @@
-const coffeePrices = {
-  latte: 120,
-  espresso: 100,
-  mocha: 140
-};
+// Handle the cart and billing functionality
 
-const sizePrices = {
-  small: 0,
-  medium: 20,
-  large: 40
-};
+let cart = [];
 
-const membershipDiscounts = {
-  none: 0,
-  silver: 0.10,
-  gold: 0.20
-};
-
-const promoCodes = {
-  "BREW20": 0.20,
-  "COFFEE10": 0.10
-};
-
-function generateInvoice() {
-  const coffee = document.getElementById("coffee").value;
-  const size = document.getElementById("size").value;
-  const quantity = parseInt(document.getElementById("quantity").value);
-  const membership = document.getElementById("membership").value;
-  const promo = document.getElementById("promo").value.trim().toUpperCase();
-
-  let basePrice = coffeePrices[coffee];
-  let sizePrice = sizePrices[size];
-  let addOnTotal = 0;
-
-  document.querySelectorAll(".addon:checked").forEach(addon => {
-    addOnTotal += parseInt(addon.value);
-  });
-
-  let subtotal = (basePrice + sizePrice + addOnTotal) * quantity;
-  let discount = subtotal * membershipDiscounts[membership];
-  let afterMembership = subtotal - discount;
-
-  let promoDiscount = 0;
-  if (promoCodes[promo]) {
-    promoDiscount = afterMembership * promoCodes[promo];
-  }
-
-  let finalAmount = afterMembership - promoDiscount;
-  let tax = finalAmount * 0.05;
-  let total = finalAmount + tax;
-
-  document.getElementById("invoice").innerHTML = `
-    <h3>Invoice</h3>
-    <p>Coffee: ${coffee.charAt(0).toUpperCase() + coffee.slice(1)}</p>
-    <p>Size: ${size}</p>
-    <p>Quantity: ${quantity}</p>
-    <p>Add-ons: ₹${addOnTotal}</p>
-    <p>Subtotal: ₹${subtotal.toFixed(2)}</p>
-    <p>Membership Discount: -₹${discount.toFixed(2)}</p>
-    <p>Promo Code (${promo}): -₹${promoDiscount.toFixed(2)}</p>
-    <p>Tax (5%): ₹${tax.toFixed(2)}</p>
-    <h4>Total: ₹${total.toFixed(2)}</h4>
-    <button onclick="window.print()">Print Invoice</button>
-  `;
+function addToCart(coffeeType, price) {
+  const coffee = { coffeeType, price };
+  cart.push(coffee);
+  alert(`${coffeeType} added to cart!`);
 }
+
+document.getElementById('generateBill').addEventListener('click', function() {
+  let coffeeType = document.getElementById('coffeeType').value;
+  let coffeeSize = document.getElementById('coffeeSize').value;
+  let coffeeQuantity = document.getElementById('coffeeQuantity').value;
+  let extras = document.getElementById('extras').value;
+  let membership = document.getElementById('membership').value;
+
+  // Example of calculating prices
+  let price = coffeeSize === "small" ? 5 : coffeeSize === "medium" ? 6 : 7;
+  let subtotal = price * coffeeQuantity;
+
+  // Display order summary
+  let billSummary = `
+    <h3>Order Summary</h3>
+    <p>Coffee Type: ${coffeeType} (${coffeeSize})</p>
+    <p>Quantity: ${coffeeQuantity}</p>
+    <p>Extras: ${extras}</p>
+    <p>Membership Discount: ${membership}</p>
+    <p>Subtotal: $${subtotal}</p>
+  `;
+  document.getElementById('order-summary').innerHTML = billSummary;
+  document.querySelector('.bill-container').style.display = "block";
+});
+
+document.getElementById('printBill').addEventListener('click', function() {
+  window.print();
+});
